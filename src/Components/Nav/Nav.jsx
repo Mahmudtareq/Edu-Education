@@ -3,6 +3,7 @@ import {
   Burger,
   Group,
   Header,
+  Image,
   Paper,
   Transition,
   createStyles,
@@ -29,7 +30,7 @@ const links = [
     label: "Community",
   },
 ];
-// import logoImage from "assets/image/logo.png";
+import logo from "../../assets/image/logo.png";
 const HEADER_HEIGHT = rem(60);
 const useStyles = createStyles((theme) => ({
   root: {
@@ -141,7 +142,7 @@ const Nav = () => {
   return (
     <Header height={HEADER_HEIGHT} className={classes.root}>
       <div className={classes.header}>
-        <h5>Logo</h5>
+        <Image src={logo} width={120} height={25} />
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>

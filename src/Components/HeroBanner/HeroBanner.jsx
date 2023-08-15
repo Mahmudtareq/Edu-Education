@@ -3,6 +3,8 @@ import React from "react";
 import heroBanner from "../../assets/image/hero-banner-1.jpg";
 import slider from "../../assets/image/slider-shape-6.png";
 import shape2 from "../../assets/image/shape-04.png";
+import shape1 from "../../assets/image/shape-01.png";
+import shape3 from "../../assets/image/shape-02.png";
 import {
   Avatar,
   Button,
@@ -47,6 +49,20 @@ const HeroBanner = () => {
             </Button>
           </Grid.Col>
           <Grid.Col xs={6}>
+            <div className="flex justify-self-center gap-8 lg:mt-[3.5rem] mt-2 ml-5">
+              <Image
+                src={shape1}
+                className=" animate-bounce rotate-90 sm:mt-10"
+                width={60}
+                height={60}
+              />
+              <Image
+                src={shape3}
+                className="ml-[8rem] mt-14 animate-bounce "
+                width={60}
+                height={60}
+              />
+            </div>
             <div
               className="lg:mt-[100px] w-[200px] h-[250px] relative"
               style={{
@@ -54,7 +70,7 @@ const HeroBanner = () => {
                 height: "220px",
               }}
             >
-              <Paper shadow="xl" p="md" className="rounded-md">
+              <Paper shadow="xl" p="md" className="rounded-md -translate-y-6 ">
                 <Center className="mb-5">
                   <Image
                     width={70}
