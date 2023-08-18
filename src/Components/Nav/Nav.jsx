@@ -18,8 +18,8 @@ const links = [
     label: "Contact",
   },
   {
-    link: "pricing",
-    label: "Pricing",
+    link: "course",
+    label: "Course",
   },
   {
     link: "learn",
