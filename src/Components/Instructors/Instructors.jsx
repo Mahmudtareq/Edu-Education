@@ -18,7 +18,7 @@ const Instructors = ({ singleCourse }) => {
   } = singleCourse;
   console.log(singleCourse);
   return (
-    <Paper className="p-5 shadow-sm bg-slate-100/20">
+    <Paper className="p-5 shadow-sm bg-slate-100/20 my-10">
       <Title order={3} className="font-sans text-2xl mb-4 text-slate-800">
         Instructors
       </Title>
@@ -55,9 +55,9 @@ const Instructors = ({ singleCourse }) => {
       </div>
       <p className="text-justify font-sans text-slate-700 text-base my-3">
         Professionally, I come from the {course_category}. {author_description}{" "}
-        I was trained by the best analytics mentors at {author_company}{" "}
-        and since starting on Udemy I have passed on my knowledge to
-        spread around the world
+        I was trained by the best analytics mentors at {author_company} and
+        since starting on Udemy I have passed on my knowledge to spread around
+        the world
       </p>
     </Paper>
   );

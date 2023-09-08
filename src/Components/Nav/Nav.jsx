@@ -1,17 +1,20 @@
 /* eslint-disable no-unused-vars */
 import {
+  Anchor,
   Burger,
+  Button,
   Group,
   Header,
   Image,
+  Loader,
   Paper,
   Transition,
   createStyles,
   rem,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 const links = [
   {
     link: "/contact",
@@ -31,6 +34,9 @@ const links = [
   },
 ];
 import logo from "../../assets/image/logo.png";
+import { AuthContext } from "../../providers/AuthProvider";
+import toast from "react-hot-toast";
+
 const HEADER_HEIGHT = rem(60);
 const useStyles = createStyles((theme) => ({
   root: {
@@ -113,7 +119,9 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 const Nav = () => {
+  const { user, logOut, loading } = useContext(AuthContext);
   const [opened, { toggle, close }] = useDisclosure(false);
+  const navigate = useNavigate();
   const { classes, cx } = useStyles();
   // const items = links.map((item) => (
   //   <Link
@@ -139,10 +147,25 @@ const Nav = () => {
       {link.label}
     </Link>
   ));
+  if (loading) {
+    <Loader />;
+  }
+  const handleLogOut = () => {
+    logOut()
+      .then((result) => {
+        toast("Logout Successfully");
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <Header height={HEADER_HEIGHT} className={classes.root}>
       <div className={classes.header}>
-        <Image src={logo} width={120} height={25} />
+        <Link to="/">
+          <Image src={logo} width={120} height={25} />
+        </Link>
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
@@ -159,6 +182,24 @@ const Nav = () => {
             </Paper>
           )}
         </Transition>
+        <Group>
+          {user ? (
+            <Button color="pink" onClick={handleLogOut}>
+              Sign Out
+            </Button>
+          ) : (
+            <Button>
+              <Link to="/login" className="no-underline text-white">
+                Login
+              </Link>
+            </Button>
+          )}
+        </Group>
+        {/* <Button>
+          <Link to="/login" className="no-underline text-white">
+            Login
+          </Link>
+        </Button> */}
       </div>
     </Header>
   );

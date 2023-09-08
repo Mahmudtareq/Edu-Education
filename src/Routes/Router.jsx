@@ -4,6 +4,8 @@ import Root from "../Components/LayOut/Root";
 import Contact from "../Components/Contact/Contact";
 import Course from "../Components/Course/Course";
 import CourseDetails from "../Components/CourseDetails/CourseDetails";
+import Login from "../Components/Login/Login";
+import Register from "../Components/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
       },
       {
         path: "course",

@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import Instructors from "../Instructors/Instructors";
 import { Container, Grid } from "@mantine/core";
+import DetailsHero from "../DetailsHero/DetailsHero";
+import DetailsLists from "../DetailsLists/DetailsLists";
 
 const CourseDetails = () => {
   const data = useLoaderData();
@@ -23,6 +25,8 @@ const CourseDetails = () => {
     <Container className="my-8">
       <Grid className="">
         <Grid.Col xs={8}>
+          <DetailsHero singleCourse={singleCourse} />
+          <DetailsLists />
           <Instructors singleCourse={singleCourse} />
         </Grid.Col>
         <Grid.Col xs={4}>
