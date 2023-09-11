@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import {
-  Anchor,
   Burger,
   Button,
   Group,
@@ -25,8 +24,8 @@ const links = [
     label: "Course",
   },
   {
-    link: "learn",
-    label: "Learn",
+    link: "instructors",
+    label: "Instructors",
   },
   {
     link: "community",

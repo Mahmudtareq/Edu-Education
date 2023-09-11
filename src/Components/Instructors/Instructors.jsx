@@ -16,7 +16,6 @@ const Instructors = ({ singleCourse }) => {
     author_description,
     total_videos,
   } = singleCourse;
-  console.log(singleCourse);
   return (
     <Paper className="p-5 shadow-sm bg-slate-100/20 my-10">
       <Title order={3} className="font-sans text-2xl mb-4 text-slate-800">

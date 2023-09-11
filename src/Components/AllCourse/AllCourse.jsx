@@ -1,60 +1,37 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Card, Image, Text, Badge, Button, Group, Avatar } from "@mantine/core";
+import { Card, Image, Button, Text, Rating } from "@mantine/core";
 import { Link } from "react-router-dom";
+import { BiSolidUser } from "react-icons/bi";
 
 const AllCourse = ({ item }) => {
-  const {
-    image,
-    course_name,
-    description,
-    course_category,
-    author_name,
-    duration,
-    rating,
-    price,
-    enrollments,
-    level,
-    id,
-  } = item || "";
+  const { image, course_name, author_name, rating, price, total_videos, id } =
+    item || "";
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
-      <Card.Section component="a" href="https://mantine.dev/">
+      <Card.Section className="hover:transition duration-700 hover:ease-in-out cursor-pointer">
         <Image src={image} height={160} alt="Norway" />
       </Card.Section>
-      <div className="flex items-center justify-between">
-        <p className="font-sans text-base font-medium text-blue-600">
-          {course_category}
-        </p>
-        <p className="font-sans text-sm font-medium text-slate-500">
-          Duration: {duration}
-        </p>
+      <div className="flex items-center justify-between my-3">
+        <Text className="font-sans text-sm font-medium text-slate-500">
+          Lessons :{total_videos}
+        </Text>
+        <Text className="font-sans text-sm font-medium text-red-800">
+          ${price}
+        </Text>
       </div>
-      <div className="">
-        <h2 className=" my-0 font-serif text-base font-semibold text-start">
-          {course_name}
-        </h2>
-      </div>
-      <div className="flex items-center justify-between">
-        <p className="font-sans text-sm font-medium text-yellow-600">
-          Enrollments: {enrollments}
-        </p>
-        <p className="font-sans text-sm font-medium text-slate-500">
-          Level: {level}
-        </p>
-      </div>
-      <Text size="sm" color="dimmed">
-        {description}
+      <Text className="font-serif text-base font-semibold p-0 m-0">
+        {course_name}
       </Text>
-      <div className="flex items-center justify-between">
-        <p className="font-sans text-sm font-medium text-slate-400">
-          Author: {author_name}
-        </p>
-        <p className="font-sans text-sm text-red-600 rounded-sm p-1 font-medium ">
-          Rating: {rating}*
-        </p>
-      </div>
+      <Text className="my-2 font-sans text-sm flex items-center font-medium text-slate-400">
+        <BiSolidUser className="text-xl me-2 ms-0" /> {author_name}
+      </Text>
+      <Text className="my-2 flex items-center">
+        <Rating value={rating} fractions={2} readOnly />{" "}
+        <span className="ms-2 text-blue-800 text-[14px]">(20)</span>
+      </Text>
+
       <Link to={`/courses/${id}`} className="no-underline">
         <Button variant="light" color="blue" fullWidth mt="md" radius="md">
           Show Details
